@@ -1,0 +1,21 @@
+<%= render "layouts/errors", :object => @harambee %>
+
+<%= form_for @harambee do |f| %>
+<div class="input-field">
+  <%= f.label 'Name of the Harambee' %>
+  <%= f.text_field :name, required:'required' %>
+</div>
+<div class="input-field">
+  <%= f.label 'Harambee Description' %>
+  <%= f.text_area :description, required:'required' %>
+</div>
+<div class="input-field">
+  <%= f.label :target_amount %>
+  <%= f.text_field :target_amount, required:'required' %>
+</div>
+<div class="input-field">
+  <%= f.label 'Target Deadline' %>
+  <%= f.date_select :deadline, required:'required' %>
+</div>
+<%= f.submit 'Create Harambee' , class:"btn bread-crumb white-text" %>
+<% end %>
