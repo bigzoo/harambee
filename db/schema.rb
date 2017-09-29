@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929163534) do
+ActiveRecord::Schema.define(version: 20170929182822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "harambee_id"
+    t.string "contributor_amount"
+    t.string "contributor_phone_no"
+    t.string "transaction_code"
+    t.string "transaction_confirmation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["harambee_id"], name: "index_transactions_on_harambee_id"
+  end
+
+  create_table "user_harambees", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.string "description"
+    t.string "target_amount"
+    t.string "raised_amount"
+    t.string "phone_no"
+    t.datetime "deadline"
+    t.boolean "running", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_harambees_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider"
