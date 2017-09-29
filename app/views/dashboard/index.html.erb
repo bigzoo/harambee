@@ -1,2 +1,12 @@
 <br>
+<% if @harambees.any? %>
+  <h2>Your Harambees</h2>
+  <% @harambees.each do |harambee|%>
+    <div class="">
+      <%= link_to harambee.name, user_harambee_path(harambee)%> created <%= distance_of_time_in_words(harambee.created_at, DateTime.current) %> ago | Target: <%= number_to_currency(harambee.target_amount, options = { unit: "Ksh."})%> | Deadline: <%= harambee.deadline.strftime('%Y-%m-%d')%>
+    </div>
+  <% end %>
+<% else %>
+  <h3>You haven't created any Harambee's yet.</h3>
+<% end %>
 <%= link_to 'New Harambee', new_user_harambee_path%>
