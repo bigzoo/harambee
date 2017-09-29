@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resources :user_harambees
   resources :dashboard, only: :index
+  resources :profile, only: :index
 end
