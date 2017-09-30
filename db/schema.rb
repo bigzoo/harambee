@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929220049) do
+ActiveRecord::Schema.define(version: 20170930021716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "harambee_id"
+    t.integer "user_harambee_id"
     t.string "contributor_amount"
     t.string "contributor_phone_no"
     t.string "transaction_code"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170929220049) do
     t.string "receipt_no"
     t.string "transaction_date"
     t.boolean "done"
-    t.index ["harambee_id"], name: "index_transactions_on_harambee_id"
+    t.index ["user_harambee_id"], name: "index_transactions_on_user_harambee_id"
   end
 
   create_table "user_harambees", force: :cascade do |t|
