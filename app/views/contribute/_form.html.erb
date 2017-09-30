@@ -1,0 +1,16 @@
+<%= render "layouts/errors", :object => @transaction %>
+
+<%= form_for(@transaction, url: '/contribute/transaction') do |f| %>
+<div class="input-field">
+  <%= f.hidden_field :user_harambee_id, value: @harambee.id %>
+</div>
+<div class="input-field">
+  <%= f.label 'Amount' %>
+  <%= f.number_field :contributor_amount, required:'required' %>
+</div>
+<div class="input-field">
+  <%= f.label 'Phone No' %>
+  <%= f.text_field :contributor_phone_no%>
+</div>
+<%= f.submit 'Send Payment Request' %>
+<% end %>
