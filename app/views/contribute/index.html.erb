@@ -1,0 +1,5 @@
+<h2>You are Contributing to <%= link_to @harambee.name, user_harambee_path(@harambee)%></h2>
+Target: <%= number_to_currency(@harambee.target_amount, options = { unit: "Ksh."})%> |
+Raised: <%= number_to_currency(@harambee.raised_amount, options = { unit: "Ksh."})%>
+<br>
+<%= render 'form'%>
