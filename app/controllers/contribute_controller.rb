@@ -60,10 +60,7 @@ class ContributeController < ApplicationController
   def callback
     @transaction = Transaction.find_by_checkout_request_id(params['Body']['stkCallback']['CheckoutRequestID'])
     description = params['Body']['stkCallback']['ResultDesc']
-    if description=="STK_CBRequest cancelled by user"
-      mes = 'Request has been cancelled by the user.'
-      Nexmo.message(mes,@transaction.contributor_phone_no)
-    elsif description=="The service request is processed successfully."
+    if description=="The service request is processed successfully."
       meta = params['Body']['stkCallback']['CallbackMetadata']['Item']
       @transaction.update(transaction_code:meta[1]["Value"],done:true)
       mes = 'Your donation of '.concat(meta[0]["Value"].to_s) + ' Reciept No. '.concat(meta[1]["Value"].to_s) +' has been recieved by Harambee on '+ meta[3]['Value'].to_s.to_time.to_s + '. Thank You for participating in Harambee.'
@@ -75,7 +72,7 @@ class ContributeController < ApplicationController
       new_raised = rs.to_i + amount
       harambee.update(raised_amount:new_raised)
       harambee.save()
-      if harambee.raised_amount>=target_amount
+      if harambee.target_amount=<raised_amount
         transactions = harambee.transactions
         mes = 'Thank you for participating in the '+harambee.name+' contribution. We have reached our target amount.'
         transactions.each do |trans|
@@ -83,7 +80,10 @@ class ContributeController < ApplicationController
         end
         harambee.update(running:false)
       end
-    end
+    else
+      mes = 'Transaction was not able to complete.'
+      Nexmo.message(mes,@transaction.contributor_phone_no)
+  end
     # number_to_currency(@harambee.target_amount, options = { unit: "Ksh."})
   end
 
