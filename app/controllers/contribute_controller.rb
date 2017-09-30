@@ -36,7 +36,7 @@ class ContributeController < ApplicationController
       'PartyA': @transaction.contributor_phone_no,
       'PartyB': shortcode,
       'PhoneNumber': @transaction.contributor_phone_no,
-      'CallBackURL': 'https://hrmb.herokuapp.com/contribute/callback',
+      'CallBackURL': 'https://5b4f28ab.ngrok.io/contribute/callback',
       'AccountReference': @transaction.id,
       'TransactionDesc': 'A donation'
     }
@@ -72,7 +72,7 @@ class ContributeController < ApplicationController
       new_raised = rs.to_i + amount
       harambee.update(raised_amount:new_raised)
       harambee.save()
-      if harambee.target_amount=<raised_amount
+      if harambee.target_amount<=raised_amount
         transactions = harambee.transactions
         mes = 'Thank you for participating in the '+harambee.name+' contribution. We have reached our target amount.'
         transactions.each do |trans|
