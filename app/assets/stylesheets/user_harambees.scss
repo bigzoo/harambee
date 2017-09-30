@@ -1,3 +1,34 @@
 // Place all the styles related to the user_harambees controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+label {
+  color:#fb3334;
+  font-family: Roboto;
+  margin-top: 5vh;
+}
+
+form .form-group .button{
+  color: white;
+  border-color:#fb3334;
+  background: #fb3334;
+}
+.ham{
+  color: #fb3334;
+  padding: 2%;
+  cursor: pointer;
+  font-size: 59px;
+}
+.runningHarambee h4{
+  color:  #fb3334;
+  font-size: 2vw;
+}
+
+label{
+  color:  #fb3334;
+  margin-top: 2vh;
+}
+.button{
+  color: white;
+  background: #fb3334;
+  border-color: #fb3334;
+}
