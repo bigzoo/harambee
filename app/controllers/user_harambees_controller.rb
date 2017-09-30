@@ -1,7 +1,7 @@
 class UserHarambeesController < ApplicationController
   # before_action :params, only: [:update, :create]
   def index
-    @harambees = UserHarambee.order(:updated_at).page params[:page]
+    @harambees = UserHarambee.where(running:true)
   end
   def show
     @harambee = UserHarambee.find(params[:id])
