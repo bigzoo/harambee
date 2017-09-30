@@ -3,21 +3,25 @@
   <head>
     <title>Harambee</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Roboto', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <div id="mySidenav" class="sidenav">
+    <li class="closebtn" id="close">&times;</li>
     <%= render 'application/auth'%>
-    <%= link_to 'Dashboard', dashboard_index_path%>
-    <%= link_to 'Profile', profile_index_path%>
-    <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="alert"><%= flash[:alert] %></div>
-    <% end %>
-    <%= yield %>
-  </body>
+  </div>
+  <% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
+  <%= yield %>
+</body>
+<%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'https://use.fontawesome.com/ae25786094.js', 'data-turbolinks-track': 'reload' %>
 </html>
