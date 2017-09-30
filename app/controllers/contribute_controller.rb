@@ -75,7 +75,7 @@ class ContributeController < ApplicationController
       new_raised = rs.to_i + amount
       harambee.update(raised_amount:new_raised)
       harambee.save()
-      if harambee.raised_amount=>target_amount
+      if harambee.raised_amount>=target_amount
         transactions = harambee.transactions
         mes = 'Thank you for participating in the '+harambee.name+' contribution. We have reached our target amount.'
         transactions.each do |trans|
