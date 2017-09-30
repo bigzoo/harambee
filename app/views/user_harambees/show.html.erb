@@ -1,3 +1,34 @@
+<%= content_for :metas do %>
+<meta property="og:title" content='<%=@harambee.name %>'/>
+<meta property="og:type" content='article'/>
+<meta property="og:url" content='<%= user_harambee_url(@harambee)%>'/>
+<meta property="og:description"   content="<%= @harambee.description %>" />
+<meta property="og:image" content='<%= @harambee.image %>'/>
+<% end %>
+<div class="container">
+     <div class="row runningHarambee">
+       <h4>The Harambee title </h4>
+     </div>
+     <div class="row">
+       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+         <img src="<%= @harambee.image %>" alt="" class="img-responsive">
+       </div>
+       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+         <!-- <form>
+           <div class="form-group">
+             <label for="name">Your Name</label>
+             <input type="text" id="name" class="form-control">
+           </div>
+           <div class="form-group">
+             <label for="number">Your Phone Number</label>
+             <input type="number" id="number" class="form-control">
+           </div>
+           <input type="submit" value="Make Donation" class="btn btn-default button">
+         </form> -->
+       </div>
+     </div>
+   </div>
+
 <h2><%= @harambee.name%></h2>
 created by <%= @harambee.user.name%>.
 <br>
@@ -8,5 +39,8 @@ Target Date: <%= @harambee.deadline.strftime('%Y-%m-%d')%>
 Target amount: <%= number_to_currency(@harambee.target_amount, options = { unit: "Ksh."})%>
 Raised amount: <%= number_to_currency(@harambee.raised_amount, options = { unit: "Ksh."})%>
 <br>
-<img src="<%= @harambee.image%>" alt="<%= @harambee.name%>">
 <%= link_to 'Contribute', user_harambee_contribute_index_path(@harambee)%>
+<br>
+<a href="javascript:fbshareCurrentPage()" target="_blank" alt="Share on Facebook">Facebook</a>
+<br>
+<a href="whatsapp://send?text=<%= user_harambee_url(@harambee)%> Help me change on Harambee today!">Share on whatsapp</a>
