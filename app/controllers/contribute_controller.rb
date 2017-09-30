@@ -36,7 +36,7 @@ class ContributeController < ApplicationController
       'PartyA': @transaction.contributor_phone_no,
       'PartyB': shortcode,
       'PhoneNumber': @transaction.contributor_phone_no,
-      'CallBackURL': 'https://5b4f28ab.ngrok.io/contribute/callback',
+      'CallBackURL': 'https://hrmb.herokuapp.com/contribute/callback',
       'AccountReference': @transaction.id,
       'TransactionDesc': 'A donation'
     }
