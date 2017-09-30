@@ -1,25 +1,27 @@
 <%= render "layouts/errors", :object => @harambee %>
 
 <%= form_for @harambee do |f| %>
-<div class="input-field">
-  <%= f.label 'Name of the Harambee' %>
-  <%= f.text_field :name, required:'required' %>
+<div class='form-group'>
+  <%= f.label 'Title', for:'name' %>
+  <%= f.text_field :name, required:'required', class:"form-control" %>
 </div>
-<div class="input-field">
+<div class="form-group">
   <%= f.label 'Harambee Description' %>
-  <%= f.text_area :description, required:'required' %>
+  <%= f.text_area :description, required:'required', rows:"8", cols:"80", class:"form-control" %>
 </div>
-<div class="input-field">
-  <%= f.label 'Image Link' %>
-  <%= f.text_field :image%>
+<div class="form-group">
+  <%= f.label 'Image(url)', for:'image' %>
+  <%= f.text_field :image, class:"form-control"%>
 </div>
-<div class="input-field">
+<div class="form-group">
   <%= f.label :target_amount %>
   <%= f.text_field :target_amount, required:'required' %>
 </div>
-<div class="input-field">
+<div class="form-group">
   <%= f.label 'Target Deadline' %>
-  <%= f.date_select :deadline, required:'required' %>
+  <%= f.date_select :deadline, required:'required', class:"form-control"%>
 </div>
-<%= f.submit 'Create Harambee' , class:"btn bread-crumb white-text" %>
+<div class="form-group">
+  <%= f.submit 'Create Harambee' , class:"btn btn-default button" %>
+</div>
 <% end %>
