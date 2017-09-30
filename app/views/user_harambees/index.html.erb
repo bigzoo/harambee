@@ -1,0 +1,6 @@
+<h2>Help by donating to a harambee.</h2>
+<% @harambees.each do |harambee| %>
+<%= link_to harambee.name, user_harambee_path(harambee)%>
+<img src="<%= harambee.image%>" alt="<%= harambee.name%>">
+<br>
+<% end %>
