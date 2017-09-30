@@ -4,13 +4,13 @@
 <div class="input-field">
   <%= f.hidden_field :user_harambee_id, value: @harambee.id %>
 </div>
-<div class="input-field">
+<div class="form-group">
   <%= f.label 'Amount' %>
-  <%= f.number_field :contributor_amount, required:'required' %>
+  <%= f.number_field :contributor_amount, required:'required', class:"form-control" %>
 </div>
-<div class="input-field">
+<div class="form-group">
   <%= f.label 'Phone No' %>
-  <%= f.text_field :contributor_phone_no%>
+  <%= f.text_field :contributor_phone_no, class:"form-control"%>
 </div>
-<%= f.submit 'Send Payment Request' %>
+<%= f.submit 'Make Donation', class:"btn btn-default button" %>
 <% end %>
