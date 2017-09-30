@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post '/contribute/callback', to: 'contribute#callback'
   resources :dashboard, only: :index
   resources :profile, only: :index
+  resources :login, only: :index
 end
