@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930021716) do
+ActiveRecord::Schema.define(version: 20170930080234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20170930021716) do
     t.string "receipt_no"
     t.string "transaction_date"
     t.boolean "done"
+    t.string "merchant_request_id"
+    t.string "checkout_request_id"
     t.index ["user_harambee_id"], name: "index_transactions_on_user_harambee_id"
   end
 
