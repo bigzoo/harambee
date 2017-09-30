@@ -1,0 +1,12 @@
+<h2><%= @harambee.name%></h2>
+created by <%= @harambee.user.name%>.
+<br>
+Description: <%= @harambee.description%>
+<br>
+Target Date: <%= @harambee.deadline.strftime('%Y-%m-%d')%>
+<br>
+Target amount: <%= number_to_currency(@harambee.target_amount, options = { unit: "Ksh."})%>
+Raised amount: <%= number_to_currency(@harambee.raised_amount, options = { unit: "Ksh."})%>
+<br>
+<img src="<%= @harambee.image%>" alt="<%= @harambee.name%>">
+<%= link_to 'Contribute', user_harambee_contribute_index_path(@harambee)%>
