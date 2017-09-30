@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :contribute, only: :index
   end
   post '/contribute/transaction', to: 'contribute#transaction'
+  post '/contribute/callback', to: 'contribute#callback'
   resources :dashboard, only: :index
   resources :profile, only: :index
 end
