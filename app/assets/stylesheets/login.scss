@@ -1,0 +1,39 @@
+.log{
+  background-color: #ff4800;
+}
+.registration{
+  min-height: 100vh;
+  padding-top: 35vh;
+}
+
+
+.registration .txt h4
+{
+  font-size: 5vw;
+  text-transform: capitalize;
+  font-family: Roboto;
+  font-weight: bolder;
+  color: white;
+}
+
+.google-login{
+
+  margin-top: 3vh;
+  font-size: 6vw;
+}
+.google-login a {
+  border: 1px solid white;
+  color: #ff4800;
+  padding: 1%;
+  background-color: white;
+}
+@media screen and (max-width: 479px) {
+  .registration .txt h4
+  {
+    font-size: 8vw;
+    line-height: 5vh;
+  }
+  .google-login{
+    font-size: 8vw;
+  }
+}
